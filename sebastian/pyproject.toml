@@ -6,6 +6,9 @@ authors = ["Sebastian Fellner <fellnerseb@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+biopython = "^1.78"
+numpy = "^1.19.4"
+torch = "^1.7.0"
 
 [tool.poetry.dev-dependencies]
 
