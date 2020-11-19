@@ -5,12 +5,13 @@ import pandas as pd
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 
 root = Path("sebastian/data/")
+annotation_file = "merged_anno.txt"
+
 seq_files = {
     "test": "ec_vs_NOec_pide20_c50_test.fasta",
     "train": "ec_vs_NOec_pide20_c50_train.fasta",
     "val": "ec_vs_NOec_pide20_c50_val.fasta",
 }
-annotation_file = "merged_anno.txt"
 
 data_frames = {}
 
