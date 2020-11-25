@@ -2,3 +2,7 @@
 /sebastian/poetry.lock
 /sebastian/data/
 /sebastian/src/protein-prediction-2-2020/mmseq_baseline/tmp/
+
+/databases
+/data
+/.ipynb_checkpoints
