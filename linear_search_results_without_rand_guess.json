@@ -1,0 +1,2246 @@
+{
+    "best_s": 13.0,
+    "best_acc": 0.31,
+    "performances": [
+        [
+            1.0,
+            "databases/results_s_1.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.054,
+                    "recall": 0.12345679012345678,
+                    "precision": 1.0,
+                    "TP": 10,
+                    "FP": 0,
+                    "TN": 17,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 71,
+                        "non-enzyme": 402
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.018,
+                    "classes": {
+                        "0": {
+                            "predicted": 17,
+                            "not_predicted": 0,
+                            "unmatched": 402
+                        },
+                        "1": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 6
+                        },
+                        "2": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 26
+                        },
+                        "3": {
+                            "predicted": 1,
+                            "not_predicted": 1,
+                            "unmatched": 27
+                        },
+                        "4": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 5
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            1.25,
+            "databases/results_s_1.25.m8",
+            {
+                "binary": {
+                    "accuracy": 0.06,
+                    "recall": 0.13580246913580246,
+                    "precision": 1.0,
+                    "TP": 11,
+                    "FP": 0,
+                    "TN": 19,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 70,
+                        "non-enzyme": 400
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.02,
+                    "classes": {
+                        "0": {
+                            "predicted": 19,
+                            "not_predicted": 0,
+                            "unmatched": 400
+                        },
+                        "1": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 6
+                        },
+                        "2": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 26
+                        },
+                        "3": {
+                            "predicted": 2,
+                            "not_predicted": 1,
+                            "unmatched": 26
+                        },
+                        "4": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 5
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            1.5,
+            "databases/results_s_1.5.m8",
+            {
+                "binary": {
+                    "accuracy": 0.066,
+                    "recall": 0.14814814814814814,
+                    "precision": 1.0,
+                    "TP": 12,
+                    "FP": 0,
+                    "TN": 21,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 69,
+                        "non-enzyme": 398
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.022,
+                    "classes": {
+                        "0": {
+                            "predicted": 21,
+                            "not_predicted": 0,
+                            "unmatched": 398
+                        },
+                        "1": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 6
+                        },
+                        "2": {
+                            "predicted": 7,
+                            "not_predicted": 0,
+                            "unmatched": 25
+                        },
+                        "3": {
+                            "predicted": 2,
+                            "not_predicted": 1,
+                            "unmatched": 26
+                        },
+                        "4": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 5
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            1.75,
+            "databases/results_s_1.75.m8",
+            {
+                "binary": {
+                    "accuracy": 0.068,
+                    "recall": 0.16049382716049382,
+                    "precision": 1.0,
+                    "TP": 13,
+                    "FP": 0,
+                    "TN": 21,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 68,
+                        "non-enzyme": 398
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.024,
+                    "classes": {
+                        "0": {
+                            "predicted": 21,
+                            "not_predicted": 0,
+                            "unmatched": 398
+                        },
+                        "1": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 6
+                        },
+                        "2": {
+                            "predicted": 7,
+                            "not_predicted": 0,
+                            "unmatched": 25
+                        },
+                        "3": {
+                            "predicted": 3,
+                            "not_predicted": 1,
+                            "unmatched": 25
+                        },
+                        "4": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 5
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            2.0,
+            "databases/results_s_2.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.074,
+                    "recall": 0.1728395061728395,
+                    "precision": 0.9333333333333333,
+                    "TP": 14,
+                    "FP": 1,
+                    "TN": 23,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 67,
+                        "non-enzyme": 395
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.026,
+                    "classes": {
+                        "0": {
+                            "predicted": 23,
+                            "not_predicted": 1,
+                            "unmatched": 395
+                        },
+                        "1": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 6
+                        },
+                        "2": {
+                            "predicted": 7,
+                            "not_predicted": 0,
+                            "unmatched": 25
+                        },
+                        "3": {
+                            "predicted": 4,
+                            "not_predicted": 1,
+                            "unmatched": 24
+                        },
+                        "4": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 5
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            2.25,
+            "databases/results_s_2.25.m8",
+            {
+                "binary": {
+                    "accuracy": 0.082,
+                    "recall": 0.20987654320987653,
+                    "precision": 0.9444444444444444,
+                    "TP": 17,
+                    "FP": 1,
+                    "TN": 24,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 64,
+                        "non-enzyme": 394
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.032,
+                    "classes": {
+                        "0": {
+                            "predicted": 24,
+                            "not_predicted": 1,
+                            "unmatched": 394
+                        },
+                        "1": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 5
+                        },
+                        "2": {
+                            "predicted": 8,
+                            "not_predicted": 0,
+                            "unmatched": 24
+                        },
+                        "3": {
+                            "predicted": 4,
+                            "not_predicted": 1,
+                            "unmatched": 24
+                        },
+                        "4": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 5
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            2.5,
+            "databases/results_s_2.5.m8",
+            {
+                "binary": {
+                    "accuracy": 0.094,
+                    "recall": 0.2345679012345679,
+                    "precision": 0.95,
+                    "TP": 19,
+                    "FP": 1,
+                    "TN": 28,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 62,
+                        "non-enzyme": 390
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.036,
+                    "classes": {
+                        "0": {
+                            "predicted": 28,
+                            "not_predicted": 1,
+                            "unmatched": 390
+                        },
+                        "1": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "2": {
+                            "predicted": 9,
+                            "not_predicted": 0,
+                            "unmatched": 23
+                        },
+                        "3": {
+                            "predicted": 4,
+                            "not_predicted": 1,
+                            "unmatched": 24
+                        },
+                        "4": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 5
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            2.75,
+            "databases/results_s_2.75.m8",
+            {
+                "binary": {
+                    "accuracy": 0.098,
+                    "recall": 0.24691358024691357,
+                    "precision": 0.9523809523809523,
+                    "TP": 20,
+                    "FP": 1,
+                    "TN": 29,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 61,
+                        "non-enzyme": 389
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.038,
+                    "classes": {
+                        "0": {
+                            "predicted": 29,
+                            "not_predicted": 1,
+                            "unmatched": 389
+                        },
+                        "1": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "2": {
+                            "predicted": 10,
+                            "not_predicted": 0,
+                            "unmatched": 22
+                        },
+                        "3": {
+                            "predicted": 4,
+                            "not_predicted": 1,
+                            "unmatched": 24
+                        },
+                        "4": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 5
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            3.0,
+            "databases/results_s_3.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.1,
+                    "recall": 0.25925925925925924,
+                    "precision": 0.9545454545454546,
+                    "TP": 21,
+                    "FP": 1,
+                    "TN": 29,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 60,
+                        "non-enzyme": 389
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.04,
+                    "classes": {
+                        "0": {
+                            "predicted": 29,
+                            "not_predicted": 1,
+                            "unmatched": 389
+                        },
+                        "1": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "2": {
+                            "predicted": 10,
+                            "not_predicted": 0,
+                            "unmatched": 22
+                        },
+                        "3": {
+                            "predicted": 4,
+                            "not_predicted": 1,
+                            "unmatched": 24
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            3.25,
+            "databases/results_s_3.25.m8",
+            {
+                "binary": {
+                    "accuracy": 0.108,
+                    "recall": 0.25925925925925924,
+                    "precision": 0.9545454545454546,
+                    "TP": 21,
+                    "FP": 1,
+                    "TN": 33,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 60,
+                        "non-enzyme": 385
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.04,
+                    "classes": {
+                        "0": {
+                            "predicted": 33,
+                            "not_predicted": 1,
+                            "unmatched": 385
+                        },
+                        "1": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "2": {
+                            "predicted": 10,
+                            "not_predicted": 0,
+                            "unmatched": 22
+                        },
+                        "3": {
+                            "predicted": 4,
+                            "not_predicted": 1,
+                            "unmatched": 24
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            3.5,
+            "databases/results_s_3.5.m8",
+            {
+                "binary": {
+                    "accuracy": 0.124,
+                    "recall": 0.2839506172839506,
+                    "precision": 0.9583333333333334,
+                    "TP": 23,
+                    "FP": 1,
+                    "TN": 39,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 58,
+                        "non-enzyme": 379
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.044,
+                    "classes": {
+                        "0": {
+                            "predicted": 39,
+                            "not_predicted": 1,
+                            "unmatched": 379
+                        },
+                        "1": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "2": {
+                            "predicted": 10,
+                            "not_predicted": 0,
+                            "unmatched": 22
+                        },
+                        "3": {
+                            "predicted": 6,
+                            "not_predicted": 1,
+                            "unmatched": 22
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            3.75,
+            "databases/results_s_3.75.m8",
+            {
+                "binary": {
+                    "accuracy": 0.14,
+                    "recall": 0.2962962962962963,
+                    "precision": 0.9230769230769231,
+                    "TP": 24,
+                    "FP": 2,
+                    "TN": 46,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 57,
+                        "non-enzyme": 371
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.046,
+                    "classes": {
+                        "0": {
+                            "predicted": 46,
+                            "not_predicted": 2,
+                            "unmatched": 371
+                        },
+                        "1": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "2": {
+                            "predicted": 11,
+                            "not_predicted": 0,
+                            "unmatched": 21
+                        },
+                        "3": {
+                            "predicted": 6,
+                            "not_predicted": 1,
+                            "unmatched": 22
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            4.0,
+            "databases/results_s_4.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.146,
+                    "recall": 0.30864197530864196,
+                    "precision": 0.9259259259259259,
+                    "TP": 25,
+                    "FP": 2,
+                    "TN": 48,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 56,
+                        "non-enzyme": 369
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.048,
+                    "classes": {
+                        "0": {
+                            "predicted": 48,
+                            "not_predicted": 2,
+                            "unmatched": 369
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 11,
+                            "not_predicted": 0,
+                            "unmatched": 21
+                        },
+                        "3": {
+                            "predicted": 6,
+                            "not_predicted": 1,
+                            "unmatched": 22
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            4.25,
+            "databases/results_s_4.25.m8",
+            {
+                "binary": {
+                    "accuracy": 0.152,
+                    "recall": 0.32098765432098764,
+                    "precision": 0.9285714285714286,
+                    "TP": 26,
+                    "FP": 2,
+                    "TN": 50,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 55,
+                        "non-enzyme": 367
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.05,
+                    "classes": {
+                        "0": {
+                            "predicted": 50,
+                            "not_predicted": 2,
+                            "unmatched": 367
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 12,
+                            "not_predicted": 0,
+                            "unmatched": 20
+                        },
+                        "3": {
+                            "predicted": 6,
+                            "not_predicted": 1,
+                            "unmatched": 22
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            4.5,
+            "databases/results_s_4.5.m8",
+            {
+                "binary": {
+                    "accuracy": 0.154,
+                    "recall": 0.32098765432098764,
+                    "precision": 0.9285714285714286,
+                    "TP": 26,
+                    "FP": 2,
+                    "TN": 51,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 55,
+                        "non-enzyme": 366
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.05,
+                    "classes": {
+                        "0": {
+                            "predicted": 51,
+                            "not_predicted": 2,
+                            "unmatched": 366
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 12,
+                            "not_predicted": 0,
+                            "unmatched": 20
+                        },
+                        "3": {
+                            "predicted": 6,
+                            "not_predicted": 1,
+                            "unmatched": 22
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            4.75,
+            "databases/results_s_4.75.m8",
+            {
+                "binary": {
+                    "accuracy": 0.166,
+                    "recall": 0.3333333333333333,
+                    "precision": 0.9642857142857143,
+                    "TP": 27,
+                    "FP": 1,
+                    "TN": 56,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 54,
+                        "non-enzyme": 362
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.052,
+                    "classes": {
+                        "0": {
+                            "predicted": 56,
+                            "not_predicted": 1,
+                            "unmatched": 362
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 12,
+                            "not_predicted": 0,
+                            "unmatched": 20
+                        },
+                        "3": {
+                            "predicted": 7,
+                            "not_predicted": 1,
+                            "unmatched": 21
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            5.0,
+            "databases/results_s_5.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.176,
+                    "recall": 0.35802469135802467,
+                    "precision": 0.9666666666666667,
+                    "TP": 29,
+                    "FP": 1,
+                    "TN": 59,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 52,
+                        "non-enzyme": 359
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.056,
+                    "classes": {
+                        "0": {
+                            "predicted": 59,
+                            "not_predicted": 1,
+                            "unmatched": 359
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 13,
+                            "not_predicted": 0,
+                            "unmatched": 19
+                        },
+                        "3": {
+                            "predicted": 8,
+                            "not_predicted": 1,
+                            "unmatched": 20
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            5.25,
+            "databases/results_s_5.25.m8",
+            {
+                "binary": {
+                    "accuracy": 0.184,
+                    "recall": 0.37037037037037035,
+                    "precision": 0.967741935483871,
+                    "TP": 30,
+                    "FP": 1,
+                    "TN": 62,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 51,
+                        "non-enzyme": 356
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.058,
+                    "classes": {
+                        "0": {
+                            "predicted": 62,
+                            "not_predicted": 1,
+                            "unmatched": 356
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 13,
+                            "not_predicted": 0,
+                            "unmatched": 19
+                        },
+                        "3": {
+                            "predicted": 9,
+                            "not_predicted": 1,
+                            "unmatched": 19
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            5.5,
+            "databases/results_s_5.5.m8",
+            {
+                "binary": {
+                    "accuracy": 0.186,
+                    "recall": 0.37037037037037035,
+                    "precision": 0.967741935483871,
+                    "TP": 30,
+                    "FP": 1,
+                    "TN": 63,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 51,
+                        "non-enzyme": 355
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.058,
+                    "classes": {
+                        "0": {
+                            "predicted": 63,
+                            "not_predicted": 1,
+                            "unmatched": 355
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 13,
+                            "not_predicted": 0,
+                            "unmatched": 19
+                        },
+                        "3": {
+                            "predicted": 9,
+                            "not_predicted": 1,
+                            "unmatched": 19
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            5.75,
+            "databases/results_s_5.75.m8",
+            {
+                "binary": {
+                    "accuracy": 0.202,
+                    "recall": 0.3950617283950617,
+                    "precision": 1.0,
+                    "TP": 32,
+                    "FP": 0,
+                    "TN": 69,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 49,
+                        "non-enzyme": 350
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.062,
+                    "classes": {
+                        "0": {
+                            "predicted": 69,
+                            "not_predicted": 0,
+                            "unmatched": 350
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 13,
+                            "not_predicted": 0,
+                            "unmatched": 19
+                        },
+                        "3": {
+                            "predicted": 10,
+                            "not_predicted": 1,
+                            "unmatched": 18
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            6.0,
+            "databases/results_s_6.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.21,
+                    "recall": 0.41975308641975306,
+                    "precision": 0.9714285714285714,
+                    "TP": 34,
+                    "FP": 1,
+                    "TN": 71,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 47,
+                        "non-enzyme": 347
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.066,
+                    "classes": {
+                        "0": {
+                            "predicted": 71,
+                            "not_predicted": 1,
+                            "unmatched": 347
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 14,
+                            "not_predicted": 0,
+                            "unmatched": 18
+                        },
+                        "3": {
+                            "predicted": 11,
+                            "not_predicted": 1,
+                            "unmatched": 17
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            6.25,
+            "databases/results_s_6.25.m8",
+            {
+                "binary": {
+                    "accuracy": 0.216,
+                    "recall": 0.41975308641975306,
+                    "precision": 0.9714285714285714,
+                    "TP": 34,
+                    "FP": 1,
+                    "TN": 74,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 47,
+                        "non-enzyme": 344
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.066,
+                    "classes": {
+                        "0": {
+                            "predicted": 74,
+                            "not_predicted": 1,
+                            "unmatched": 344
+                        },
+                        "1": {
+                            "predicted": 4,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "2": {
+                            "predicted": 14,
+                            "not_predicted": 0,
+                            "unmatched": 18
+                        },
+                        "3": {
+                            "predicted": 11,
+                            "not_predicted": 1,
+                            "unmatched": 17
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            6.5,
+            "databases/results_s_6.5.m8",
+            {
+                "binary": {
+                    "accuracy": 0.232,
+                    "recall": 0.43209876543209874,
+                    "precision": 0.9722222222222222,
+                    "TP": 35,
+                    "FP": 1,
+                    "TN": 81,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 46,
+                        "non-enzyme": 337
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.068,
+                    "classes": {
+                        "0": {
+                            "predicted": 81,
+                            "not_predicted": 1,
+                            "unmatched": 337
+                        },
+                        "1": {
+                            "predicted": 5,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "2": {
+                            "predicted": 14,
+                            "not_predicted": 0,
+                            "unmatched": 18
+                        },
+                        "3": {
+                            "predicted": 11,
+                            "not_predicted": 1,
+                            "unmatched": 17
+                        },
+                        "4": {
+                            "predicted": 2,
+                            "not_predicted": 0,
+                            "unmatched": 4
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            6.75,
+            "databases/results_s_6.75.m8",
+            {
+                "binary": {
+                    "accuracy": 0.242,
+                    "recall": 0.4691358024691358,
+                    "precision": 0.95,
+                    "TP": 38,
+                    "FP": 2,
+                    "TN": 83,
+                    "FN": 0,
+                    "unmatched": {
+                        "enzyme": 43,
+                        "non-enzyme": 334
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.074,
+                    "classes": {
+                        "0": {
+                            "predicted": 83,
+                            "not_predicted": 2,
+                            "unmatched": 334
+                        },
+                        "1": {
+                            "predicted": 5,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "2": {
+                            "predicted": 15,
+                            "not_predicted": 0,
+                            "unmatched": 17
+                        },
+                        "3": {
+                            "predicted": 12,
+                            "not_predicted": 1,
+                            "unmatched": 16
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            7.0,
+            "databases/results_s_7.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.248,
+                    "recall": 0.4691358024691358,
+                    "precision": 0.9743589743589743,
+                    "TP": 38,
+                    "FP": 1,
+                    "TN": 86,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 42,
+                        "non-enzyme": 332
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.074,
+                    "classes": {
+                        "0": {
+                            "predicted": 86,
+                            "not_predicted": 1,
+                            "unmatched": 332
+                        },
+                        "1": {
+                            "predicted": 5,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "2": {
+                            "predicted": 15,
+                            "not_predicted": 1,
+                            "unmatched": 16
+                        },
+                        "3": {
+                            "predicted": 12,
+                            "not_predicted": 1,
+                            "unmatched": 16
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            7.5,
+            "databases/results_s_7.5.m8",
+            {
+                "binary": {
+                    "accuracy": 0.27,
+                    "recall": 0.5061728395061729,
+                    "precision": 0.9761904761904762,
+                    "TP": 41,
+                    "FP": 1,
+                    "TN": 94,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 39,
+                        "non-enzyme": 324
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.08,
+                    "classes": {
+                        "0": {
+                            "predicted": 94,
+                            "not_predicted": 1,
+                            "unmatched": 324
+                        },
+                        "1": {
+                            "predicted": 5,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 12,
+                            "not_predicted": 1,
+                            "unmatched": 16
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 0,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            8.0,
+            "databases/results_s_8.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.292,
+                    "recall": 0.5308641975308642,
+                    "precision": 0.9772727272727273,
+                    "TP": 43,
+                    "FP": 1,
+                    "TN": 103,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 37,
+                        "non-enzyme": 315
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.084,
+                    "classes": {
+                        "0": {
+                            "predicted": 103,
+                            "not_predicted": 1,
+                            "unmatched": 315
+                        },
+                        "1": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 12,
+                            "not_predicted": 1,
+                            "unmatched": 16
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            8.5,
+            "databases/results_s_8.5.m8",
+            {
+                "binary": {
+                    "accuracy": 0.298,
+                    "recall": 0.5432098765432098,
+                    "precision": 0.9565217391304348,
+                    "TP": 44,
+                    "FP": 2,
+                    "TN": 105,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 36,
+                        "non-enzyme": 312
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.086,
+                    "classes": {
+                        "0": {
+                            "predicted": 105,
+                            "not_predicted": 2,
+                            "unmatched": 312
+                        },
+                        "1": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 13,
+                            "not_predicted": 1,
+                            "unmatched": 15
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            9.0,
+            "databases/results_s_9.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.304,
+                    "recall": 0.5432098765432098,
+                    "precision": 0.9361702127659575,
+                    "TP": 44,
+                    "FP": 3,
+                    "TN": 108,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 36,
+                        "non-enzyme": 308
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.086,
+                    "classes": {
+                        "0": {
+                            "predicted": 108,
+                            "not_predicted": 3,
+                            "unmatched": 308
+                        },
+                        "1": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 13,
+                            "not_predicted": 1,
+                            "unmatched": 15
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            9.5,
+            "databases/results_s_9.5.m8",
+            {
+                "binary": {
+                    "accuracy": 0.302,
+                    "recall": 0.5432098765432098,
+                    "precision": 0.9361702127659575,
+                    "TP": 44,
+                    "FP": 3,
+                    "TN": 107,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 36,
+                        "non-enzyme": 309
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.086,
+                    "classes": {
+                        "0": {
+                            "predicted": 107,
+                            "not_predicted": 3,
+                            "unmatched": 309
+                        },
+                        "1": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 13,
+                            "not_predicted": 1,
+                            "unmatched": 15
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            10.0,
+            "databases/results_s_10.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.302,
+                    "recall": 0.5432098765432098,
+                    "precision": 0.9361702127659575,
+                    "TP": 44,
+                    "FP": 3,
+                    "TN": 107,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 36,
+                        "non-enzyme": 309
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.086,
+                    "classes": {
+                        "0": {
+                            "predicted": 107,
+                            "not_predicted": 3,
+                            "unmatched": 309
+                        },
+                        "1": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 13,
+                            "not_predicted": 1,
+                            "unmatched": 15
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            11.0,
+            "databases/results_s_11.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.308,
+                    "recall": 0.5555555555555556,
+                    "precision": 0.9375,
+                    "TP": 45,
+                    "FP": 3,
+                    "TN": 109,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 35,
+                        "non-enzyme": 307
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.086,
+                    "classes": {
+                        "0": {
+                            "predicted": 109,
+                            "not_predicted": 3,
+                            "unmatched": 307
+                        },
+                        "1": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 13,
+                            "not_predicted": 1,
+                            "unmatched": 15
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 1,
+                            "unmatched": 2
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            12.0,
+            "databases/results_s_12.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.308,
+                    "recall": 0.5432098765432098,
+                    "precision": 0.9361702127659575,
+                    "TP": 44,
+                    "FP": 3,
+                    "TN": 110,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 36,
+                        "non-enzyme": 306
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.086,
+                    "classes": {
+                        "0": {
+                            "predicted": 110,
+                            "not_predicted": 3,
+                            "unmatched": 306
+                        },
+                        "1": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 13,
+                            "not_predicted": 1,
+                            "unmatched": 15
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 0,
+                            "unmatched": 3
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            13.0,
+            "databases/results_s_13.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.31,
+                    "recall": 0.5555555555555556,
+                    "precision": 0.9183673469387755,
+                    "TP": 45,
+                    "FP": 4,
+                    "TN": 110,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 35,
+                        "non-enzyme": 305
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.086,
+                    "classes": {
+                        "0": {
+                            "predicted": 110,
+                            "not_predicted": 4,
+                            "unmatched": 305
+                        },
+                        "1": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 13,
+                            "not_predicted": 1,
+                            "unmatched": 15
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 1,
+                            "unmatched": 2
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ],
+        [
+            14.0,
+            "databases/results_s_14.0.m8",
+            {
+                "binary": {
+                    "accuracy": 0.31,
+                    "recall": 0.5555555555555556,
+                    "precision": 0.9375,
+                    "TP": 45,
+                    "FP": 3,
+                    "TN": 110,
+                    "FN": 1,
+                    "unmatched": {
+                        "enzyme": 35,
+                        "non-enzyme": 306
+                    }
+                },
+                "multiclass": {
+                    "accuracy": 0.086,
+                    "classes": {
+                        "0": {
+                            "predicted": 110,
+                            "not_predicted": 3,
+                            "unmatched": 306
+                        },
+                        "1": {
+                            "predicted": 6,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "2": {
+                            "predicted": 18,
+                            "not_predicted": 1,
+                            "unmatched": 13
+                        },
+                        "3": {
+                            "predicted": 13,
+                            "not_predicted": 1,
+                            "unmatched": 15
+                        },
+                        "4": {
+                            "predicted": 3,
+                            "not_predicted": 1,
+                            "unmatched": 2
+                        },
+                        "5": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        },
+                        "6": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 2
+                        },
+                        "7": {
+                            "predicted": 1,
+                            "not_predicted": 0,
+                            "unmatched": 1
+                        }
+                    }
+                }
+            }
+        ]
+    ]
+}
