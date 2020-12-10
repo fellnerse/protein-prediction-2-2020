@@ -78,4 +78,18 @@ class ProteinDataset(Dataset):
             bin_label = torch.Tensor([1])
         else:
             bin_label = torch.Tensor([0])
-        return [embeddings, bin_label]
+        return embeddings, bin_label
+
+
+def collate_fn(data):
+    ret_x = []
+    ret_y = []
+
+    for datapoint in data:
+        x, y = datapoint
+        ret_x.append(x)
+        ret_y.append(y)
+
+    ret_y = torch.stack(ret_y, dim=0)
+
+    return ret_x, ret_y

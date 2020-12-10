@@ -25,7 +25,10 @@ class SimpleCNN(pl.LightningModule):
 
     def _step(self, batch, batch_idx, name: str = "train"):
         x, y = batch
-        pred = self.forward(x).squeeze(1)
+        pred = torch.zeros_like(y)
+
+        for idx, x_ in enumerate(x):
+            pred[idx] = self.forward(x_.unsqueeze(0)).squeeze(0)
 
         loss = F.binary_cross_entropy_with_logits(pred, y)
         self.log(name + "_loss", loss)
@@ -47,5 +50,5 @@ class SimpleCNN(pl.LightningModule):
         return self._step(batch, batch_idx, name="test")
 
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=1e-3)
+        optimizer = torch.optim.Adam(self.parameters(), lr=1e-5)
         return optimizer
