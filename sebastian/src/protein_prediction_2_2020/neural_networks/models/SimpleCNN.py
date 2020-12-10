@@ -32,7 +32,6 @@ class SimpleCNN(pl.LightningModule):
 
         pred = F.sigmoid(pred.detach())
         pred = torch.round(pred.data)
-        print(pred, y)
         correct = (pred == y).sum().item()
         self.log(name + "_acc", correct / pred.size(0))
 
