@@ -1,3 +1,6 @@
+from typing import Any
+from typing import List
+
 import pytorch_lightning as pl
 import torch
 import torch.nn.functional as F
@@ -32,11 +35,18 @@ class SimpleCNN(pl.LightningModule):
 
         loss = F.binary_cross_entropy_with_logits(pred, y)
         self.log(name + "_loss", loss)
+        # self.logger.experiment.add_scalars(
+        #     "loss", {name: loss}, global_step=self.global_step
+        # )
 
         pred = F.sigmoid(pred.detach())
         pred = torch.round(pred.data)
         correct = (pred == y).sum().item()
+
         self.log(name + "_acc", correct / pred.size(0))
+        # self.logger.experiment.add_scalars(
+        #     "acc", {name: correct / pred.size(0)}, global_step=self.global_step
+        # )
 
         return loss
 
@@ -50,5 +60,5 @@ class SimpleCNN(pl.LightningModule):
         return self._step(batch, batch_idx, name="test")
 
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=1e-5)
+        optimizer = torch.optim.Adam(self.parameters(), lr=1e-4)
         return optimizer
