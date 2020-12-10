@@ -2,9 +2,9 @@
 import subprocess
 
 subprocess.run(
-    "mmseqs easy-search "
-    "sebastian/data/ec_vs_NOec_pide20_c50_test.fasta  "
-    "sebastian/data/ec_vs_NOec_pide20_c50_train.fasta "
+    "mmseqs easy-search " "sebastian/data/ec_vs_NOec_pide20_c50_test.fasta  "
+    # "sebastian/data/ec_vs_NOec_pide20_c50_train.fasta "
+    "sebastian/data/swissprot "
     "sebastian/src/protein-prediction-2-2020/mmseq_baseline/result_test.m8 "
     "sebastian/src/protein-prediction-2-2020/mmseq_baseline/tmp",
     shell=True,
@@ -12,9 +12,9 @@ subprocess.run(
 )
 
 subprocess.run(
-    "mmseqs easy-search "
-    "sebastian/data/ec_vs_NOec_pide20_c50_val.fasta  "
-    "sebastian/data/ec_vs_NOec_pide20_c50_train.fasta "
+    "mmseqs easy-search " "sebastian/data/ec_vs_NOec_pide20_c50_val.fasta  "
+    # "sebastian/data/ec_vs_NOec_pide20_c50_train.fasta "
+    "sebastian/data/swissprot "
     "sebastian/src/protein-prediction-2-2020/mmseq_baseline/result_val.m8 "
     "sebastian/src/protein-prediction-2-2020/mmseq_baseline/tmp",
     shell=True,

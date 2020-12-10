@@ -1,4 +1,10 @@
 /sebastian/.python-version
 /sebastian/poetry.lock
 /sebastian/data/
+/sebastian/src/protein_prediction_2_2020/mmseq_baseline/tmp/
+
+/databases
+/data
+/.ipynb_checkpoints
+/sebastian/log/
 /sebastian/src/protein-prediction-2-2020/mmseq_baseline/tmp/
