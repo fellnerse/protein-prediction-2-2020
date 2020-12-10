@@ -26,8 +26,16 @@ class SimpleCNN(pl.LightningModule):
     def _step(self, batch, batch_idx, name: str = "train"):
         x, y = batch
         pred = self.forward(x).squeeze(1)
+
         loss = F.binary_cross_entropy_with_logits(pred, y)
         self.log(name + "_Loss", loss)
+
+        pred = F.sigmoid(pred.detach())
+        pred = torch.round(pred.data)
+        print(pred, y)
+        correct = (pred == y).sum().item()
+        self.log(name + "_acc", correct / pred.size(0))
+
         return loss
 
     def training_step(self, batch, batch_idx):
@@ -35,6 +43,9 @@ class SimpleCNN(pl.LightningModule):
 
     def validation_step(self, batch, batch_idx):
         return self._step(batch, batch_idx, name="val")
+
+    def test_step(self, batch, batch_idx):
+        return self._step(batch, batch_idx, name="test")
 
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=1e-3)

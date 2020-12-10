@@ -78,4 +78,4 @@ class ProteinDataset(Dataset):
             bin_label = torch.Tensor([1])
         else:
             bin_label = torch.Tensor([0])
-        return embeddings, bin_label
+        return [embeddings, bin_label]
