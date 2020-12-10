@@ -2,10 +2,19 @@
 import json
 from pathlib import Path
 
-results_file = Path("sebastian/results/linear_search_results.json")
-
-with open(results_file, "r") as f:
+results_files = [
+    Path("sebastian/results/linear_search_results.json"),
+    Path("sebastian/results/linear_search_results_8_10.json"),
+]
+with open(results_files[0], "r") as f:
     results = json.load(f)
+
+with open(results_files[1], "r") as f:
+    results_2 = json.load(f)
+    results["best_s"] = results_2["best_s"]
+    results["best_acc"] = results_2["best_acc"]
+
+    results["performances"] += results_2["performances"]
 
 #%% binary case
 import matplotlib.pyplot as plt
@@ -55,8 +64,8 @@ def plot_metric(metric_list, y_axis_description: str):
         plt.plot(parameter_values, metric_list, label=y_axis_description)
         plt.xlabel("sensitivityof 'mmseq -s'")
         plt.ylabel("value in %")
-    except ValueError:
-        pass
+    except ValueError as e:
+        print(e)
 
 
 def plot_binary_metrics(title: str):
