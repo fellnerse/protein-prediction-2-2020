@@ -28,7 +28,7 @@ class SimpleCNN(pl.LightningModule):
         pred = self.forward(x).squeeze(1)
 
         loss = F.binary_cross_entropy_with_logits(pred, y)
-        self.log(name + "_Loss", loss)
+        self.log(name + "_loss", loss)
 
         pred = F.sigmoid(pred.detach())
         pred = torch.round(pred.data)
