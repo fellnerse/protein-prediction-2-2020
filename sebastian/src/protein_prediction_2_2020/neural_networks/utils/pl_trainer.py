@@ -20,7 +20,7 @@ def train(data_folder, log_folder):
     valset = ProteinDataset(data_folder=data_folder, data_split="val")
 
     model = SimpleCNN()
-    trainer = pl.Trainer(gpus=-1, default_root_dir=log_folder)
+    trainer = pl.Trainer(gpus=-1, default_root_dir=log_folder, val_check_interval=0.02)
     trainer.fit(
         model, DataLoader(trainset, num_workers=8), DataLoader(valset, num_workers=8)
     )
