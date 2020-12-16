@@ -1,4 +1,6 @@
+import logging
 from pathlib import Path
+from typing import Dict
 
 import h5py
 import numpy as np
@@ -6,6 +8,9 @@ import pandas as pd
 import torch
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 from torch.utils.data import Dataset
+from torch.utils.data import WeightedRandomSampler
+
+logger = logging.getLogger(__name__)
 
 
 class ProteinDataset(Dataset):
@@ -74,11 +79,65 @@ class ProteinDataset(Dataset):
         key = self.key_map[index]
         with h5py.File(self.data_path, "r") as f:
             embeddings = torch.tensor(f[key][:], dtype=torch.float32).T
-        if self.data_frame["ec_or_nc"][key] in "EC":
-            bin_label = torch.Tensor([1])
-        else:
-            bin_label = torch.Tensor([0])
+
+        bin_label = torch.tensor(
+            [self.class_to_idx(self.data_frame["ec_or_nc"][key])], dtype=torch.double
+        )
+
         return embeddings, bin_label
+
+    @staticmethod
+    def class_to_idx(label: str) -> float:
+        if label.lower() == "ec":
+            return 0
+        else:
+            return 1
+
+
+class BalancedSampler(WeightedRandomSampler):
+    def __init__(
+        self, dataset: ProteinDataset, replacement=True, predefined_weights=None
+    ):
+        class_weight_dict = self._calculate_class_weights(
+            dataset, predefined_weights=predefined_weights
+        )
+        class_weights = np.zeros((2,))
+        for key, value in class_weight_dict.items():
+            class_weights[dataset.class_to_idx(key)] = value
+
+        logger.warning(f"Classweights, that are used for {dataset}: {class_weights}")
+
+        # this is in wrong order for now
+        targets = np.zeros((len(dataset)), dtype=np.int)
+        for i in range(len(dataset)):
+            key = dataset.key_map[i]
+            targets[i] = dataset.class_to_idx(dataset.data_frame["ec_or_nc"][key])
+
+        weights = class_weights[targets]
+
+        super().__init__(weights, num_samples=len(dataset), replacement=replacement)
+
+    @staticmethod
+    def _calculate_class_weights(
+        dataset: ProteinDataset, predefined_weights=None
+    ) -> Dict[str, float]:
+        labels, counts = np.unique(
+            np.array(dataset.data_frame["ec_or_nc"]), return_counts=True
+        )
+        if predefined_weights is not None:
+            counts = predefined_weights / counts
+        else:
+            counts = 1 / counts
+        counts /= counts.sum()
+
+        weight_dict = {
+            class_idx: 0 for class_idx in set(dataset.data_frame["ec_or_nc"])
+        }
+
+        for label, count in zip(labels, counts):
+            weight_dict[label] = count
+
+        return weight_dict
 
 
 def collate_fn(data):

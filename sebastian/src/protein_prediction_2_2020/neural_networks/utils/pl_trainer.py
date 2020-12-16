@@ -4,7 +4,10 @@ import click
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader
 
+from protein_prediction_2_2020.neural_networks.models.SimpleCNN import ComplexCNN
+from protein_prediction_2_2020.neural_networks.models.SimpleCNN import LightAttention
 from protein_prediction_2_2020.neural_networks.models.SimpleCNN import SimpleCNN
+from protein_prediction_2_2020.neural_networks.utils.dataset import BalancedSampler
 from protein_prediction_2_2020.neural_networks.utils.dataset import collate_fn
 from protein_prediction_2_2020.neural_networks.utils.dataset import ProteinDataset
 
@@ -31,7 +34,9 @@ def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_n
     valset = ProteinDataset(data_folder=data_folder, data_split="val")
     testset = ProteinDataset(data_folder=data_folder, data_split="test")
 
-    model = SimpleCNN()
+    # model = ComplexCNN()
+    # model = SimpleCNN()
+    model = LightAttention(output_dim=1)
     trainer = pl.Trainer(
         gpus=-1,
         default_root_dir=Path(log_folder) / run_name,
@@ -44,8 +49,9 @@ def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_n
             trainset,
             num_workers=8,
             batch_size=batch_size,
-            shuffle=True,
             collate_fn=collate_fn,
+            # shuffle=True
+            sampler=BalancedSampler(trainset),
         ),
         DataLoader(valset, num_workers=0, batch_size=batch_size, collate_fn=collate_fn),
     )
