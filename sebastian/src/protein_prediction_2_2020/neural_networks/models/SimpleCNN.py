@@ -194,3 +194,72 @@ class LightAttention(PLModel):
         o = torch.cat([o1, o2], dim=-1)  # [batchsize, 2*embeddings_dim]
         o = self.linear(o)  # [batchsize, 32]
         return self.output(o)  # [batchsize, output_dim]
+
+
+class BetterAttention(PLModel):
+    def __init__(self, embeddings_dim=1024, kernel_size=32):
+        super(BetterAttention, self).__init__()
+        self.attention_convolution = nn.Sequential(
+            nn.Conv1d(1, 1, kernel_size, stride=1, padding=kernel_size // 2),  # -> 1024
+            nn.MaxPool1d(2),  # -> 512
+            nn.LeakyReLU(),
+            nn.Conv1d(1, 1, kernel_size, stride=1, padding=kernel_size // 2),  # -> 512
+            nn.MaxPool1d(2),  # -> 256
+            nn.LeakyReLU(),
+            nn.Conv1d(1, 1, kernel_size, stride=1, padding=kernel_size // 2),  # -> 256
+            nn.MaxPool1d(2),  # -> 128
+            nn.LeakyReLU(),
+            nn.Conv1d(1, 1, kernel_size, stride=1, padding=kernel_size // 2),  # -> 128
+            nn.MaxPool1d(2),  # -> 64
+            nn.LeakyReLU(),
+            nn.Conv1d(
+                1, 1, kernel_size // 2, stride=1, padding=kernel_size // 4
+            ),  # -> 64
+            nn.MaxPool1d(2),  # -> 32
+            nn.LeakyReLU(),
+            nn.Conv1d(
+                1, 1, kernel_size // 4, stride=1, padding=kernel_size // 8
+            ),  # -> 32
+            nn.MaxPool1d(2),  # -> 16
+            nn.LeakyReLU(),
+            nn.Conv1d(
+                1, 1, kernel_size // 8, stride=1, padding=kernel_size // 16
+            ),  # -> 8
+            nn.MaxPool1d(2),  # -> 4
+            nn.LeakyReLU(),
+            nn.Conv1d(
+                1, 1, kernel_size // 16, stride=1, padding=kernel_size // 32
+            ),  # -> 4
+            nn.MaxPool1d(2),  # -> 2
+            nn.LeakyReLU(),
+            nn.Conv1d(1, 1, kernel_size // 32, stride=1, padding=0),  # -> 2
+            nn.MaxPool1d(3),  # -> 1
+            nn.LeakyReLU(),
+        )
+        self.feature_convolution = nn.Identity()
+
+        self.linear = nn.Sequential(
+            nn.Linear(2 * embeddings_dim, 32),
+            nn.LeakyReLU(),
+            # nn.BatchNorm1d(32),
+        )
+
+        self.output = nn.Linear(32, 1)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        o = self.feature_convolution(x)  # [batch_size, embeddings_dim, sequence_length]
+        attention = self.attention_convolution(
+            x.permute((2, 0, 1))
+        )  # [sequence_length, 1, 1]
+
+        # mask out the padding to which we do not want to pay any attention (we have the padding because the sequences have different lenghts).
+        # This padding is added by the dataloader when using the padded_permuted_collate function in utils/general.py
+        # attention = attention.masked_fill(mask[:, None, :] == False, -1e9)
+
+        o1 = torch.sum(
+            o * F.softmax(attention.permute(2, 1, 0)), dim=-1
+        )  # [batchsize, embeddings_dim]
+        o2, _ = torch.max(o, dim=-1)  # [batchsize, embeddings_dim]
+        o = torch.cat([o1, o2], dim=-1)  # [batchsize, 2*embeddings_dim]
+        o = self.linear(o)  # [batchsize, 32]
+        return self.output(o)  # [batchsize, output_dim]
