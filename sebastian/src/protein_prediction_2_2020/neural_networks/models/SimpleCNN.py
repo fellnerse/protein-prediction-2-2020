@@ -1,6 +1,7 @@
 import pytorch_lightning as pl
 import torch
 import torch.nn.functional as F
+import torchvision.models as models
 from torch import nn
 
 
@@ -66,11 +67,10 @@ class SimpleCNN(PLModel):
         x, y = batch
         pred = torch.zeros_like(y)
 
-        for idx, x_ in enumerate(x):
-            pred[idx] = self.forward(x_.unsqueeze(0)).squeeze(0)
+        self._fill_preds(pred, x)
 
         loss = F.binary_cross_entropy_with_logits(pred, y)
-        self.log(name + "_loss", loss)
+        self.log(name + "_loss", loss.item())
         # self.logger.experiment.add_scalars(
         #     "loss", {name: loss}, global_step=self.global_step
         # )
@@ -79,12 +79,16 @@ class SimpleCNN(PLModel):
         pred = torch.round(pred.data)
         correct = (pred == y).sum().item()
 
-        self.log(name + "_acc", correct / pred.size(0))
+        self.log(name + "_acc", (correct / pred.size(0)))
         # self.logger.experiment.add_scalars(
         #     "acc", {name: correct / pred.size(0)}, global_step=self.global_step
         # )
 
         return loss
+
+    def _fill_preds(self, pred, x):
+        for idx, x_ in enumerate(x):
+            pred[idx] = self.forward(x_.unsqueeze(0)).squeeze(0)
 
     def training_step(self, batch, batch_idx):
         return self._step(batch, batch_idx, name="train")
@@ -232,9 +236,9 @@ class BetterAttention(PLModel):
             ),  # -> 4
             nn.MaxPool1d(2),  # -> 2
             nn.LeakyReLU(),
-            nn.Conv1d(1, 1, kernel_size // 32, stride=1, padding=0),  # -> 2
-            nn.MaxPool1d(3),  # -> 1
+            nn.Conv1d(1, 1, kernel_size // 32, stride=1, padding=0),  # -> 3
             nn.LeakyReLU(),
+            nn.Conv1d(1, 1, 4, stride=1, padding=0),  # -> 1
         )
         self.feature_convolution = nn.Identity()
 
@@ -263,3 +267,13 @@ class BetterAttention(PLModel):
         o = torch.cat([o1, o2], dim=-1)  # [batchsize, 2*embeddings_dim]
         o = self.linear(o)  # [batchsize, 32]
         return self.output(o)  # [batchsize, output_dim]
+
+
+class ImageModel(PLModel):
+    def __init__(self):
+        super().__init__()
+        self.resnet18 = models.resnet18(pretrained=True)
+        self.resnet18.fc = nn.Linear(512, 1)
+
+    def forward(self, x: torch.Tensor):
+        return self.resnet18(x.unsqueeze(1).repeat(1, 3, 1, 1))
