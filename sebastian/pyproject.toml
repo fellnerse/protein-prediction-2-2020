@@ -17,6 +17,7 @@ pytorch-lightning = "^1.1.0"
 h5py = "^3.1.0"
 torchvision = "^0.8.1"
 click = "^7.1.2"
+torch-summary = "^1.4.3"
 
 [tool.poetry.dev-dependencies]
 
