@@ -42,7 +42,7 @@ def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_n
     # model = LightAttention(output_dim=1)
     # model = BetterAttention()
     # model = ImageModel()
-    model = SimpleLSTM()
+    model = SimpleLSTM(num_layer=1)
     trainer = pl.Trainer(
         gpus=-1,
         default_root_dir=Path(log_folder) / run_name,
