@@ -4,11 +4,24 @@ import click
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader
 
-from protein_prediction_2_2020.neural_networks.models.SimpleCNN import BetterAttention
-from protein_prediction_2_2020.neural_networks.models.SimpleCNN import ComplexCNN
-from protein_prediction_2_2020.neural_networks.models.SimpleCNN import ImageModel
-from protein_prediction_2_2020.neural_networks.models.SimpleCNN import LightAttention
-from protein_prediction_2_2020.neural_networks.models.SimpleCNN import SimpleCNN
+from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
+    BetterAttention,
+)
+from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
+    LightAttention,
+)
+from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
+    LightAttentionNoMax,
+)
+from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
+    StandardAttention,
+)
+from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
+    StandardAttentionWOFeatureConv,
+)
+from protein_prediction_2_2020.neural_networks.models.CNNModels import ComplexCNN
+from protein_prediction_2_2020.neural_networks.models.CNNModels import ImageModel
+from protein_prediction_2_2020.neural_networks.models.CNNModels import SimpleCNN
 from protein_prediction_2_2020.neural_networks.models.SimpleLSTM import SimpleLSTM
 from protein_prediction_2_2020.neural_networks.utils.dataset import BalancedSampler
 from protein_prediction_2_2020.neural_networks.utils.dataset import collate_fn
@@ -40,7 +53,10 @@ def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_n
     # model = ComplexCNN()
     # model = SimpleCNN()
     # model = LightAttention(output_dim=1)
-    # model = BetterAttention()
+    # model = LightAttentionNoMax(output_dim=1)
+    # model = StandardAttention(output_dim=1)
+    # model = StandardAttentionWOFeatureConv(output_dim=1)
+    model = BetterAttention()
     # model = ImageModel()
     model = SimpleLSTM(num_layer=1)
     trainer = pl.Trainer(
