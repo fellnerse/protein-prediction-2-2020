@@ -10,6 +10,15 @@ from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
 from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
     LightAttention,
 )
+from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
+    LightAttentionNoMax,
+)
+from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
+    StandardAttention,
+)
+from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
+    StandardAttentionWOFeatureConv,
+)
 from protein_prediction_2_2020.neural_networks.models.CNNModels import ComplexCNN
 from protein_prediction_2_2020.neural_networks.models.CNNModels import ImageModel
 from protein_prediction_2_2020.neural_networks.models.CNNModels import SimpleCNN
@@ -42,8 +51,11 @@ def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_n
 
     # model = ComplexCNN()
     # model = SimpleCNN()
-    model = LightAttention(output_dim=1)
-    # model = BetterAttention()
+    # model = LightAttention(output_dim=1)
+    # model = LightAttentionNoMax(output_dim=1)
+    # model = StandardAttention(output_dim=1)
+    # model = StandardAttentionWOFeatureConv(output_dim=1)
+    model = BetterAttention()
     # model = ImageModel()
     trainer = pl.Trainer(
         gpus=-1,
