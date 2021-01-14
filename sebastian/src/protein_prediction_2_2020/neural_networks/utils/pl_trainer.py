@@ -22,6 +22,7 @@ from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
 from protein_prediction_2_2020.neural_networks.models.CNNModels import ComplexCNN
 from protein_prediction_2_2020.neural_networks.models.CNNModels import ImageModel
 from protein_prediction_2_2020.neural_networks.models.CNNModels import SimpleCNN
+from protein_prediction_2_2020.neural_networks.models.SimpleLSTM import SimpleLSTM
 from protein_prediction_2_2020.neural_networks.utils.dataset import BalancedSampler
 from protein_prediction_2_2020.neural_networks.utils.dataset import collate_fn
 from protein_prediction_2_2020.neural_networks.utils.dataset import ProteinDataset
@@ -57,6 +58,7 @@ def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_n
     # model = StandardAttentionWOFeatureConv(output_dim=1)
     model = BetterAttention()
     # model = ImageModel()
+    model = SimpleLSTM(num_layer=1)
     trainer = pl.Trainer(
         gpus=-1,
         default_root_dir=Path(log_folder) / run_name,
