@@ -11,7 +11,9 @@ class SimpleLSTM(PLModel):
     def __init__(self, num_layer):
         super(SimpleLSTM, self).__init__()
         self.num_layer = num_layer
-        self.lstm = nn.LSTM(1024, 128, num_layer, batch_first=True, dropout=0.2, bidirectional=True)
+        self.lstm = nn.LSTM(
+            1024, 128, num_layer, batch_first=True, dropout=0.2, bidirectional=True
+        )
         self.fc1 = nn.Linear(256, 128)
         self.fc2 = nn.Linear(128, 32)
         self.fc3 = nn.Linear(32, 1)
