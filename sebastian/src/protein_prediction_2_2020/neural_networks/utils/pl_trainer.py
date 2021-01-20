@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 
 from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
     BetterAttention,
-)
+    SelfAttention, LightAttentionOnlyMax)
 from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
     LightAttention,
 )
@@ -53,12 +53,14 @@ def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_n
     # model = ComplexCNN()
     # model = SimpleCNN()
     # model = LightAttention(output_dim=1)
+    # model = LightAttentionOnlyMax(output_dim=1)
+    model = SelfAttention(output_dim=1)
     # model = LightAttentionNoMax(output_dim=1)
     # model = StandardAttention(output_dim=1)
     # model = StandardAttentionWOFeatureConv(output_dim=1)
-    model = BetterAttention()
+    # model = BetterAttention()
     # model = ImageModel()
-    model = SimpleLSTM(num_layer=1)
+    # model = SimpleLSTM(num_layer=1)
     trainer = pl.Trainer(
         gpus=-1,
         default_root_dir=Path(log_folder) / run_name,
