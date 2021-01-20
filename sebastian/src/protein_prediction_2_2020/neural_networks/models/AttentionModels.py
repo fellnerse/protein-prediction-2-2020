@@ -166,6 +166,7 @@ class StandardAttention(PLModel):
     def __init__(
         self,
         embeddings_dim=1024,
+        hidden_dim=1024,
         output_dim=11,
         dropout=0.25,
         kernel_size=9,
@@ -176,14 +177,10 @@ class StandardAttention(PLModel):
         self.dropout_pct = dropout
 
         self.feature_convolution = nn.Conv1d(
-            embeddings_dim,
-            embeddings_dim,
-            kernel_size,
-            stride=1,
-            padding=kernel_size // 2,
+            embeddings_dim, hidden_dim, kernel_size, stride=1, padding=kernel_size // 2
         )
         self.attention_convolution = nn.Conv1d(
-            embeddings_dim, 1, kernel_size, stride=1, padding=kernel_size // 2
+            embeddings_dim, hidden_dim, kernel_size, stride=1, padding=kernel_size // 2
         )
 
         self.softmax = nn.Softmax(dim=-1)
@@ -191,7 +188,7 @@ class StandardAttention(PLModel):
         self.dropout = nn.Dropout(conv_dropout)
 
         self.linear = nn.Sequential(
-            nn.Linear(2 * embeddings_dim, 32),
+            nn.Linear(2 * hidden_dim, 32),
             nn.Dropout(dropout),
             nn.ReLU(),
             # nn.BatchNorm1d(32),
@@ -234,3 +231,84 @@ class StandardAttentionWOFeatureConv(StandardAttention):
 # todo rename run standard_attention* to smaller attention (this run does not attend to each value in input, but each feature vector)
 # todo add actual self attention (with key query value)
 # todo add "two way" attention (1. attend to each feature vector; 2. attend to each feature dim)
+
+
+class AttentionModule(nn.Module):
+    def __init__(
+        self,
+        embeddings_dim=1024,
+        hidden_dim=1024,
+        dropout=0.25,
+        kernel_size=9,
+        conv_dropout: float = 0.25,
+    ):
+        super().__init__()
+        self.feature_convolution = nn.Conv1d(
+            embeddings_dim, hidden_dim, kernel_size, stride=1, padding=kernel_size // 2
+        )
+        self.attention_convolution = nn.Conv1d(
+            embeddings_dim, hidden_dim, kernel_size, stride=1, padding=kernel_size // 2
+        )
+
+        self.softmax = nn.Softmax(dim=-1)
+
+        self.dropout = nn.Dropout(conv_dropout)
+
+        self.linear = nn.Sequential(
+            nn.Linear(2 * hidden_dim, hidden_dim),
+            nn.Dropout(dropout),
+            nn.ReLU(),
+            # nn.BatchNorm1d(32),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        o = self.feature_convolution(x)  # [batch_size, embeddings_dim, sequence_length]
+        o = self.dropout(o)  # [batch_size, embeddings_dim, sequence_length]
+        attention = self.attention_convolution(x)  # [batch_size, 1, sequence_length]
+
+        o1 = torch.sum(
+            o * self.softmax(attention), dim=-1
+        )  # [batchsize, embeddings_dim]
+        o2, _ = torch.max(o, dim=-1)  # [batchsize, embeddings_dim]
+        o = torch.cat([o1, o2], dim=-1)  # [batchsize, 2*embeddings_dim]
+        o = self.linear(o)  # [batchsize, 32]
+        return o  # [batchsize, output_dim]
+
+
+class StackedAttention(PLModel):
+    def __init__(
+        self,
+        embeddings_dim=1024,
+        hidden_dim=1024,
+        output_dim=11,
+        dropout=0.25,
+        kernel_size=9,
+        conv_dropout: float = 0.25,
+    ):
+        super().__init__()
+        self.at0 = AttentionModule(
+            embeddings_dim=embeddings_dim,
+            hidden_dim=hidden_dim,
+            dropout=dropout,
+            kernel_size=kernel_size,
+            conv_dropout=conv_dropout,
+        )
+        self.at1 = AttentionModule(
+            embeddings_dim=hidden_dim,
+            hidden_dim=hidden_dim,
+            dropout=dropout,
+            kernel_size=kernel_size,
+            conv_dropout=conv_dropout,
+        )
+
+        self.pooling = nn.AdaptiveAvgPool2d(hidden_dim)
+
+        self.output = nn.Linear(2 * hidden_dim, output_dim)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        at0 = self.at0(x)
+        at1 = self.at1(self.pooling(x.permute(0, 2, 1)))
+        return self.output(torch.cat([at0, at1], dim=-1))
+
+
+# todo use fixed max, min and avg -> do attention on those maybe?

@@ -14,6 +14,9 @@ from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
     LightAttentionNoMax,
 )
 from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
+    StackedAttention,
+)
+from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
     StandardAttention,
 )
 from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
@@ -54,11 +57,12 @@ def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_n
     # model = SimpleCNN()
     # model = LightAttention(output_dim=1)
     # model = LightAttentionNoMax(output_dim=1)
-    # model = StandardAttention(output_dim=1)
+    # model = StandardAttention(hidden_dim=128, kernel_size=1, output_dim=1)
+    model = StackedAttention(hidden_dim=128, kernel_size=9, output_dim=1)
     # model = StandardAttentionWOFeatureConv(output_dim=1)
-    model = BetterAttention()
+    # model = BetterAttention()
     # model = ImageModel()
-    model = SimpleLSTM(num_layer=1)
+    # model = SimpleLSTM(num_layer=1)
     trainer = pl.Trainer(
         gpus=-1,
         default_root_dir=Path(log_folder) / run_name,
