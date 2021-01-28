@@ -8,8 +8,8 @@ from protein_prediction_2_2020.neural_networks.models.PLModel import PLModel
 
 
 class SimpleLSTM(PLModel):
-    def __init__(self, num_layer):
-        super(SimpleLSTM, self).__init__()
+    def __init__(self, num_layer, output_dim=1):
+        super(SimpleLSTM, self).__init__(output_dim)
         self.num_layer = num_layer
         self.lstm = nn.LSTM(1024, 128, num_layer, batch_first=True, dropout=0.2, bidirectional=True)
         self.fc1 = nn.Linear(256, 128)

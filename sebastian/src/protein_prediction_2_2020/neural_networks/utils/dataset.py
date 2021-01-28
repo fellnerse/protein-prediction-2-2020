@@ -18,13 +18,15 @@ class ProteinDataset(Dataset):
 
     annotation_file_name = "merged_anno.txt"
 
+    aug_annotation_file_name = "augmented_anno.txt"
+
     @staticmethod
     def data_split_to_file_name(data_split: str, fasta_file: bool = True):
         return (
             f"ec_vs_NOec_pide20_c50_{data_split}.{ 'fasta'  if  fasta_file else 'h5'}"
         )
 
-    def __init__(self, data_folder: str, data_split: str = "train"):
+    def __init__(self, data_folder: str, data_split: str = "train", augmentation: bool = False):
 
         if data_split not in self.data_splits:
             raise ValueError(f"{data_split} is not a valid data split name.")
@@ -70,7 +72,20 @@ class ProteinDataset(Dataset):
         self.data_frame = self.data_frame.merge(
             self.annotations, how="left", left_index=True, right_index=True
         )
+
+        if data_split == "train" and augmentation:
+            aug_annotations = pd.read_csv(
+                self.root / self.aug_annotation_file_name,
+                sep="\\t",
+                names=["index", "EC"],
+                index_col=0,
+                engine="python",
+            )
+            self.data_frame = pd.concat([self.data_frame, aug_annotations], verify_integrity=True)
+
         self.data_frame["ec_or_nc"] = np.where(self.data_frame["EC"].isna(), "NC", "EC")
+        self.data_frame["EC"] = self.data_frame["EC"].fillna("0")
+        self.data_frame["EC_first"] = self.data_frame["EC"].str[0]
 
     def __len__(self):
         return len(self.keys)
@@ -80,18 +95,15 @@ class ProteinDataset(Dataset):
         with h5py.File(self.data_path, "r") as f:
             embeddings = torch.tensor(f[key][:], dtype=torch.float32).T
 
-        bin_label = torch.tensor(
-            [self.class_to_idx(self.data_frame["ec_or_nc"][key])], dtype=torch.double
+        label = torch.tensor(
+            [self.class_to_idx(self.data_frame["EC_first"][key])], dtype=torch.long
         )
 
-        return embeddings, bin_label
+        return embeddings, label
 
     @staticmethod
     def class_to_idx(label: str) -> float:
-        if label.lower() == "ec":
-            return 0
-        else:
-            return 1
+        return int(label)
 
 
 class BalancedSampler(WeightedRandomSampler):
@@ -101,7 +113,7 @@ class BalancedSampler(WeightedRandomSampler):
         class_weight_dict = self._calculate_class_weights(
             dataset, predefined_weights=predefined_weights
         )
-        class_weights = np.zeros((2,))
+        class_weights = np.zeros((8,))
         for key, value in class_weight_dict.items():
             class_weights[dataset.class_to_idx(key)] = value
 
@@ -111,7 +123,7 @@ class BalancedSampler(WeightedRandomSampler):
         targets = np.zeros((len(dataset)), dtype=np.int)
         for i in range(len(dataset)):
             key = dataset.key_map[i]
-            targets[i] = dataset.class_to_idx(dataset.data_frame["ec_or_nc"][key])
+            targets[i] = dataset.class_to_idx(dataset.data_frame["EC_first"][key])
 
         weights = class_weights[targets]
 
@@ -122,7 +134,7 @@ class BalancedSampler(WeightedRandomSampler):
         dataset: ProteinDataset, predefined_weights=None
     ) -> Dict[str, float]:
         labels, counts = np.unique(
-            np.array(dataset.data_frame["ec_or_nc"]), return_counts=True
+            np.array(dataset.data_frame["EC_first"]), return_counts=True
         )
         if predefined_weights is not None:
             counts = predefined_weights / counts
@@ -131,7 +143,7 @@ class BalancedSampler(WeightedRandomSampler):
         counts /= counts.sum()
 
         weight_dict = {
-            class_idx: 0 for class_idx in set(dataset.data_frame["ec_or_nc"])
+            class_idx: 0 for class_idx in set(dataset.data_frame["EC_first"])
         }
 
         for label, count in zip(labels, counts):

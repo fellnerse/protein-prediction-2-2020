@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 
 from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
     BetterAttention,
-)
+    SelfAttention, LightAttentionOnlyMax)
 from protein_prediction_2_2020.neural_networks.models.AttentionModels import (
     LightAttention,
 )
@@ -46,19 +46,21 @@ from protein_prediction_2_2020.neural_networks.utils.dataset import ProteinDatas
 @click.option("--batch_size", default=64, help="Batch size used with dataloader.")
 @click.option("--run_name", prompt="Name of run")
 def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_name):
-    trainset = ProteinDataset(data_folder=data_folder, data_split="train")
+    trainset = ProteinDataset(data_folder=data_folder, data_split="train", augmentation=True)
     valset = ProteinDataset(data_folder=data_folder, data_split="val")
     testset = ProteinDataset(data_folder=data_folder, data_split="test")
 
     # model = ComplexCNN()
-    # model = SimpleCNN()
-    # model = LightAttention(output_dim=1)
+    # model = SimpleCNN(output_dim=8)
+    model = SelfAttention(output_dim=8)
+    # model = LightAttentionOnlyMax(output_dim=8)
+    # model = SelfAttention(output_dim=8)
     # model = LightAttentionNoMax(output_dim=1)
     # model = StandardAttention(output_dim=1)
     # model = StandardAttentionWOFeatureConv(output_dim=1)
-    model = BetterAttention()
+    # model = BetterAttention()
     # model = ImageModel()
-    model = SimpleLSTM(num_layer=1)
+    # model = SimpleLSTM(num_layer=1)
     trainer = pl.Trainer(
         gpus=-1,
         default_root_dir=Path(log_folder) / run_name,
@@ -77,7 +79,8 @@ def train(data_folder, log_folder, validate_after, num_epochs, batch_size, run_n
         ),
         DataLoader(valset, num_workers=0, batch_size=batch_size, collate_fn=collate_fn),
     )
-
+    ckpt_path = trainer.checkpoint_callback.best_model_path
+    model = LightAttentionOnlyMax.load_from_checkpoint(ckpt_path, output_dim=8)
     res = trainer.test(model, DataLoader(testset, num_workers=8))
     print(res)
 

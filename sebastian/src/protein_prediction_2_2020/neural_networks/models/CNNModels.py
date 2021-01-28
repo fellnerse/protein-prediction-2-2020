@@ -7,14 +7,14 @@ from protein_prediction_2_2020.neural_networks.models import PLModel
 
 
 class SimpleCNN(PLModel):
-    def __init__(self):
-        super(SimpleCNN, self).__init__()
+    def __init__(self, output_dim=1):
+        super(SimpleCNN, self).__init__(output_dim)
         self.conv1 = nn.Conv1d(1024, 32, 7)
         self.conv2 = nn.Conv1d(32, 1, 7)
         self.pool = nn.AdaptiveMaxPool1d(256)
         self.fc1 = nn.Linear(256, 128)
         self.fc2 = nn.Linear(128, 32)
-        self.fc3 = nn.Linear(32, 1)
+        self.fc3 = nn.Linear(32, output_dim)
 
     def forward(self, x):
         x = F.relu(self.conv1(x))
@@ -27,24 +27,21 @@ class SimpleCNN(PLModel):
 
     def _step(self, batch, batch_idx, name: str = "train"):
         x, y = batch
-        pred = torch.zeros_like(y)
+        y = y.squeeze(1)
+        pred = torch.zeros(y.shape[0], self.output_dim).cuda()
 
         self._fill_preds(pred, x)
 
-        loss = F.binary_cross_entropy_with_logits(pred, y)
+        loss = F.cross_entropy(pred, y)
         self.log(name + "_loss", loss.item())
-        # self.logger.experiment.add_scalars(
-        #     "loss", {name: loss}, global_step=self.global_step
-        # )
 
-        pred = torch.sigmoid(pred.detach())
-        pred = torch.round(pred.data)
+        pred = torch.argmax(pred.detach(), dim=1)
         correct = (pred == y).sum().item()
 
+        if name == "test":
+            self.confmat.update(pred, y)
+
         self.log(name + "_acc", (correct / pred.size(0)))
-        # self.logger.experiment.add_scalars(
-        #     "acc", {name: correct / pred.size(0)}, global_step=self.global_step
-        # )
 
         return loss
 
@@ -67,8 +64,8 @@ class SimpleCNN(PLModel):
 
 
 class ComplexCNN(PLModel):
-    def __init__(self):
-        super(ComplexCNN, self).__init__()
+    def __init__(self, output_dim=1):
+        super(ComplexCNN, self).__init__(output_dim)
         self.conv1 = nn.Conv1d(1024, 128, 7)
         self.conv1_bn = nn.BatchNorm1d(128)
         self.conv2 = nn.Conv1d(128, 64, 7)
@@ -82,7 +79,7 @@ class ComplexCNN(PLModel):
 
         self.fc1 = nn.Linear(256, 128)
         self.fc2 = nn.Linear(128, 32)
-        self.fc3 = nn.Linear(32, 1)
+        self.fc3 = nn.Linear(32, output_dim)
 
     def forward(self, x):
         x = F.relu(self.conv1_bn(self.conv1(x)))
@@ -97,8 +94,8 @@ class ComplexCNN(PLModel):
 
 
 class ImageModel(PLModel):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, output_dim=1):
+        super().__init__(output_dim)
         self.resnet18 = models.resnet18(pretrained=True)
         self.resnet18.fc = nn.Linear(512, 1)
 
